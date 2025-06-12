@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: rgb(5, 10, 20);
+    color: white;
+}
+
+header{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 9%;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    filter: drop-shadow(10px); 
+}
+
+.logo{
+    font-size: 3rem;
+    color: rgb(81, 160, 212);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 500;
+    margin-left: 4rem;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+section{
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: rgb(5, 10, 20);
+}
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span{
+    color: rgb(81, 160, 212);
+}
+
+.home-content p{
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    text-align: justify;
+    max-width: 700px;
+    margin-top: 2rem;
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-img{
+    border-radius: 50%;
+}
+
+.home-img img{
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid white;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 0.2rem solid rgb(81, 160, 212);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: white;
+}
+
+.social-icons a:hover{
+    color: rgb(81, 160, 212);
+    transform: scale(1.3)translateY(-5px);
+    box-shadow: 0 0 25px rgb(81, 160, 212);
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    font-size: 1.6rem;
+    color: white;
+    font-weight: 600;
+    background-color: transparent;
+    border-radius: 4rem;
+    transition: 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.3rem;
+    border: 2px solid rgb(81, 160, 212);
+}
+
+.btn:hover{
+    color: rgb(81, 160, 212);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 25px rgb(81, 160, 212);
+}
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::after{
+    content: '';
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: rgb(5, 10, 20);
+    animation: cursor 0.6s infinite;
+    border-left: 3px solid rgb(5, 10, 20);
+}
+
+.typing-text span::before{
+    content: 'Desenvolvedor';
+    color: rgb(81, 160, 212);
+    animation: words 20s infinite;
+}
+
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid rgb(81, 160, 212);
+    }
+}
+
+@keyframes words{
+    0%,20%{
+        content: 'Desenvolvedor';
+    }
+    21%,40%{
+        content: 'Desenvolvedor Web';
+    }
+    41%,60%{
+        content: 'Desenvolvedor Front-end';
+    }
+    61%,80%{
+        content: 'Desenvolvedor Back-end';
+    }
+    81%,100%{
+        content: 'Desenvolvedor Full Stack';
+    }
+}
+
+@media(max-width:1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+    .home-content h1{
+        font-size: 5rem;
+    }
+    .home.home-content h3{
+        font-size: 2.5rem;
+    }
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
