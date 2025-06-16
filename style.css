@@ -1,5 +1,7 @@
+/* Importando a fonte Roboto do Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+/* Resetando margens, paddings e definindo box-sizing */
 *{
     margin: 0;
     padding: 0;
@@ -10,10 +12,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Definindo tamanho base da fonte como 62.5% (10px = 1rem) */
 html{
     font-size: 62.5%;
 }
 
+/* Estilos gerais do body */
 body{
     width: 100%;
     height: 100vh;
@@ -22,6 +26,7 @@ body{
     color: white;
 }
 
+/* Estilo do cabeçalho fixo com sombra */
 header{
     margin-top: 20px;
     display: flex;
@@ -37,6 +42,7 @@ header{
     filter: drop-shadow(10px); 
 }
 
+/* Logo animada com transição */
 .logo{
     font-size: 3rem;
     color: rgb(81, 160, 212);
@@ -49,6 +55,7 @@ header{
     transform: scale(1.1);
 }
 
+/* Estilo dos links do menu de navegação */
 nav a{
     font-size: 1.8rem;
     color: white;
@@ -58,11 +65,13 @@ nav a{
     border-bottom: 3px solid transparent;
 }
 
+/* Estilo das seções do site */
 section{
     min-height: 100vh;
     padding: 5rem 9% 5rem;
 }
 
+/* Container da seção home */
 .home{
     display: flex;
     justify-content: center;
@@ -71,16 +80,19 @@ section{
     background-color: rgb(5, 10, 20);
 }
 
+/* Estilos dos títulos principais */
 .home .home-content h1{
     font-size: 6rem;
     font-weight: 700;
     line-height: 1.3;
 }
 
+/* Cor de destaque para palavras com <span> */
 span{
     color: rgb(81, 160, 212);
 }
 
+/* Parágrafo da home */
 .home-content p{
     font-size: 1.6rem;
     line-height: 2.8rem;
@@ -89,16 +101,19 @@ span{
     margin-top: 2rem;
 }
 
+/* Subtítulo da home */
 .home-content h3{
     font-size: 4rem;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
+/* Imagem circular */
 .home-img{
     border-radius: 50%;
 }
 
+/* Estilizando imagem de perfil com sombra */
 .home-img img{
     position: relative;
     width: 32vw;
@@ -113,6 +128,7 @@ span{
     font-weight: 500;
 }
 
+/* Ícones das redes sociais com animação */
 .social-icons a{
     display: inline-flex;
     justify-content: center;
@@ -133,6 +149,7 @@ span{
     box-shadow: 0 0 25px rgb(81, 160, 212);
 }
 
+/* Botão com borda e animação */
 .btn{
     display: inline-block;
     padding: 1rem 2.8rem;
@@ -153,39 +170,62 @@ span{
     box-shadow: 0 0 25px rgb(81, 160, 212);
 }
 
-.typing-text{
-    font-size: 34px;
+/* Texto digitando com efeito de cursor */
+.typing-text {
+    font-size: 3.4rem;
     font-weight: 600;
-    min-width: 280px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 5rem;
 }
 
+/* Cursor do efeito digitando */
+.cursor {
+    animation: blink-caret 0.7s infinite;
+    color: rgb(81, 160, 212);
+    font-weight: bold;
+    font-size: 3.4rem;
+}
+
+/* Span com linha de cursor animado */
 .typing-text span{
     position: relative;
 }
 
-.typing-text span::after{
+.typing-text span::after {
     content: '';
     position: absolute;
-    width: calc(100% + 8px);
+    top: 0;
+    left: 100%;
+    width: 3px;
     height: 100%;
-    background-color: rgb(5, 10, 20);
-    animation: cursor 0.6s infinite;
-    border-left: 3px solid rgb(5, 10, 20);
+    background-color: rgb(81, 160, 212);
+    animation: blink-caret 0.7s steps(1) infinite;
 }
 
-.typing-text span::before{
-    content: 'Desenvolvedor';
-    color: rgb(81, 160, 212);
-    animation: words 20s infinite;
-}
+/* ===========================
+   Animações com @keyframes
+   =========================== */
 
-
+/* Animação do cursor piscando */
 @keyframes cursor{
     to{
         border-left: 3px solid rgb(81, 160, 212);
     }
 }
 
+/* Animação de piscar */
+@keyframes blink-caret {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Animação de troca de palavras (não está sendo usada ainda no CSS) */
 @keyframes words{
     0%,20%{
         content: 'Desenvolvedor';
@@ -204,26 +244,45 @@ span{
     }
 }
 
+/* ===========================
+   Design Responsivo
+   =========================== */
+
+/* Para telas menores que 1000px - reduz o gap entre os elementos da home */
 @media(max-width:1000px){
     .home{
         gap: 4rem;
     }
 }
 
+/* Para telas menores que 995px - organiza os elementos da home em coluna */
 @media(max-width:995px){
     .home{
         flex-direction: column;
         margin: 5rem 4rem;
     }
+
     .home-content h1{
         font-size: 5rem;
     }
+
     .home.home-content h3{
         font-size: 2.5rem;
     }
+
     .home-img img{
         width: 70vw;
         margin-top: 4rem;
     }
 }
 
+/* Para telas menores que 768px - ajusta tamanho do texto digitando */
+@media (max-width: 768px) {
+    .typing-text {
+        font-size: 2.4rem;
+    }
+
+    .typing-text span::after {
+        height: 2.4rem;
+    }
+}
